@@ -13,8 +13,8 @@ pipeline {
     }
     stage("Upload to AWS") {
       steps {
-        withAWS(region:'us-east-1',credentials:'sk_devops_creds') {
-          s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:'index.html', bucket:'skuchkuladata')
+        withAWS(region:'sa-east-1',credentials:'s3-jenkins') {
+          s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:'index.html', bucket:'stgdatagate.superbid.net')
         }
       }
     }
