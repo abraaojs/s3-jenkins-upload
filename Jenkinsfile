@@ -14,7 +14,7 @@ pipeline {
     stage("Upload to AWS") {
       steps {
         withAWS(region:'sa-east-1',credentials:'s3-jenkins') {
-          s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:'index.html', bucket:'stgdatagate.superbid.net')
+          s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'file.txt', bucket:'stgdatagate.superbid.net', path:'$pwd/file.txt')
         }
       }
     }
